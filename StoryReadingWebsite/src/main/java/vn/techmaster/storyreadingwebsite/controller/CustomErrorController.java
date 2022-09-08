@@ -15,6 +15,7 @@ import java.util.logging.Logger;
 @Log4j2
 public class CustomErrorController  implements ErrorController {
 
+    // Cấu hình error
     @GetMapping("/error")
     public String handleError(HttpServletRequest request) {
         String errorPage = "error"; // default

@@ -120,7 +120,7 @@ public class MainController {
         return "bookCategory";
     }
 
-    // Tìm chapter trước và sau
+    // Tìm chapter trước và sau sử dụng paging
     @GetMapping("/story/{sId}/chapter/{chId}/page/{pageNumer}")
     public String listByPage(Model model,
                              @PathVariable(name = "pageNumer") int currentPage,

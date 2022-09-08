@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class AdminPageController {
 
-
+    //Trang Admin
     @GetMapping("/admin")
     public String AdminPage(){
         return "fragmentsAdmin";
