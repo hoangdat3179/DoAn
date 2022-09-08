@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head >
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Manager</title>
+    <!-- Styles Global -->
+    <link rel="stylesheet" type="text/css" th:href="@{/assets/css/style.css}" />
+    <!-- Bootstrap -->
+    <link
+            rel="stylesheet"
+            type="text/css"
+            th:href="@{/plugins/bootstrap/bootstrap-5.2.0-beta1-dist/css/bootstrap.min.css}"
+    />
+    <!-- Font-AWS -->
+    <link
+            rel="stylesheet"
+            th:href="@{/plugins/fontawesome-free-6.1.1-web/css/all.min.css}"
+    />
+    <!-- OWL-Core-CSS -->
+    <link
+            rel="stylesheet"
+            th:href="@{/plugins/owlcarousel/assets/owl.carousel.min.css}"
+    />
+    <link
+            rel="stylesheet"
+            th:href="@{plugins/owlcarousel/assets/owl.theme.default.min.css}"
+    />
+</head>
+<body>
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark" >
+    <div class="container-fluid">
+        <a class="navbar-brand" href="javascript:void(0)">AdminPage</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mynavbar">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/admin/stories}">Quản Lý Truyện</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/admin/categories}">Danh sách thể loại</a>
+                </li>
+            </ul>
+            <form th:action="@{/admin/logout}" method="post">
+                <input type="submit" value="Logout" />
+            </form>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div class="row" style="width: 70%">
+        <div class="col">
+            <img class="m-3 rounded" th:src="@{${story.imagePath}}" style="width: 200px">
+        </div>
+    </div>
+
+
+    <table class="table table-bordered" style="width: 70%">
+        <tbody>
+        <tr>
+            <th scope="row" style="width: 20%">Tên Truyện</th>
+            <td th:text="${story.title}" style="width: 80%"></td>
+        </tr>
+        <tr>
+            <th scope="row">Tác giả</th>
+            <td th:text="${story.author}"></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <a th:href="@{'/admin/story/add/chapter/'+ ${story.id} }" class="btn btn-info">Thêm chương</a>
+</div>
+<div class="container mt-3">
+    <div><h1>Danh sách chương</h1></div>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th scope="col">Tên Chương</th>
+            <th scope="col">Xóa</th>
+            <th scope="col">Sửa</th>
+            <th scope="col">Xem</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="chapter : ${listChapters}">
+            <th th:text="${chapter.title}"></th>
+
+            <td><a th:href="@{'/admin/story/'+ ${story.id} + '/chapter/delete/' + ${chapter.id}}"
+                   class="btn btn-danger">Xóa</a></td>
+            <td><a th:href="@{'/admin/story/'+ ${story.id} + '/chapter/edit/' + ${chapter.id}}"
+                   class="btn btn-warning">Sửa</a></td>
+            <td><a th:href="@{'/story/'+ ${story.id} + '/chapter/' + ${chapter.id}}"
+                   class="btn btn-info">Xem</a></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<!-- JQUERY-3.6.0 -->
+<script th:src="@{/plugins/jquery-3.6.0.min.js}"></script>
+<!-- Bootstrap -->
+<script
+        type="text/javascript"
+        th:src="@{/plugins/bootstrap/bootstrap-5.2.0-beta1-dist/js/bootstrap.bundle.min.js}"
+></script>
+<!-- OWL-CORE-SCRIPT -->
+<script th:src="@{/plugins/owlcarousel/owl.carousel.min.js}"></script>
+<script th:src="@{/assets/js/owl-custom.js}"></script>
+</body>
+</html>

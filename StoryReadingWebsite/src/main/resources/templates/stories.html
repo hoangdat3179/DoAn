@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head >
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Manager</title>
+    <!-- Styles Global -->
+    <link rel="stylesheet" type="text/css" th:href="@{/assets/css/style.css}" />
+    <!-- Bootstrap -->
+    <link
+            rel="stylesheet"
+            type="text/css"
+            th:href="@{/plugins/bootstrap/bootstrap-5.2.0-beta1-dist/css/bootstrap.min.css}"
+    />
+    <!-- Font-AWS -->
+    <link
+            rel="stylesheet"
+            th:href="@{/plugins/fontawesome-free-6.1.1-web/css/all.min.css}"
+    />
+    <!-- OWL-Core-CSS -->
+    <link
+            rel="stylesheet"
+            th:href="@{/plugins/owlcarousel/assets/owl.carousel.min.css}"
+    />
+    <link
+            rel="stylesheet"
+            th:href="@{plugins/owlcarousel/assets/owl.theme.default.min.css}"
+    />
+</head>
+
+<body>
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark" >
+    <div class="container-fluid">
+        <a class="navbar-brand" href="javascript:void(0)">AdminPage</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mynavbar">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/admin/stories}">Quản Lý Truyện</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/admin/categories}">Danh sách thể loại</a>
+                </li>
+            </ul>
+            <form th:action="@{/admin/logout}" method="post">
+                <input type="submit" value="Logout" />
+            </form>
+        </div>
+    </div>
+</nav>
+    <div class="container mt-3">
+        <a th:href="@{/admin/story/new}" style="margin: 20px 0" class="btn btn-primary">Thêm truyện</a>
+        <div><h1>Danh sách truyện</h1></div><br>
+        <div>
+            <form th:action="@{/admin/search}">
+                Tìm kiếm:
+                <input type="text" name="keyword" th:value="${keyword}" required>
+                &nbsp;
+                <input type="submit" value="Search">
+                &nbsp;
+                <input type="button" value="Clear" onclick="clearFilter()">
+            </form>
+        </div><br>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Tên</th>
+                    <th scope="col">Ảnh</th>
+                    <th scope="col">Tác giả</th>
+                    <th scope="col">Nguồn truyện</th>
+                    <th scope="col">Nội dung</th>
+                    <th scope="col">Thể loại</th>
+                    <th scope="col">Trạng thái</th>
+                    <th scope="col">Xóa</th>
+                    <th scope="col">Sửa</th>
+                    <th scope="col">Danh sách Chương</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="story : ${listStories}">
+                    <th th:text="${story.id}"></th>
+                    <td th:text="${story.title}"></td>
+                    <td>
+                        <img th:src="@{${story.imagePath}}" style="width: 100px">
+                    </td>
+                    <td th:text="${story.author}"></td>
+                    <td th:text="${story.link}"></td>
+                    <td th:text="${story.description}"></td>
+                    <td th:text="${story.categories}"></td>
+                    <td>
+                        <th:block
+                                th:each="status : ${T(vn.techmaster.storyreadingwebsite.entity.Status).values()}">
+                                            <span class="badge"
+                                                  th:class="${#strings.equals(story.status,'HOANTHANH')} ? 'badge bg-success':'badge bg-danger'"
+                                                  th:if="${status == story.status}" th:text="${status.label}">
+                                            </span>
+                        </th:block>
+                    </td>
+
+                    <td><a th:href="@{'/admin/story/delete/' + ${story.id}}" class="btn btn-danger">Xóa</a></td>
+                    <td><a th:href="@{'/admin/story/edit/' + ${story.id}}" class="btn btn-warning">Sửa</a></td></td>
+                    <td><a th:href="|/admin/story/${story.id}|" class="btn btn-outline-info">Xem</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+<div class="text-center">
+    Total Story: [[${totalItems}]] - Page [[${currentPage}]] of [[${totalPages}]]
+    &nbsp; - &nbsp;
+
+    <a th:if="${currentPage > 1}" th:href="@{/admin/story/page/1}">First</a>
+    <span th:unless="${currentPage > 1}">First</span>
+    &nbsp;
+    <a th:if="${currentPage > 1}" th:href="@{'/admin/story/page/' + ${currentPage - 1}}">Previous</a>
+    <span th:unless="${currentPage > 1}">Previous</span>
+    &nbsp;
+    <span th:each="i : ${#numbers.sequence(1,totalPages)}">
+        <a th:if="${i != currentPage}" th:href="@{'/admin/story/page/' + ${i}}">[[${i}]]</a>
+        <span th:unless="${i != currentPage}" >[[${i}]]</span>
+        &nbsp;&nbsp;
+    </span>
+
+    <a th:if="${currentPage < totalPages}" th:href="@{'/admin/story/page/' + ${currentPage + 1}}">Next</a>
+    <span th:unless="${currentPage < totalPages}">Next</span>
+    &nbsp;
+
+    <a th:if="${currentPage < totalPages}" th:href="@{'/admin/story/page/' + ${totalPages}}">Last</a>
+    <span th:unless="${currentPage < totalPages}">Last</span>
+</div>
+<script type="text/javascript">
+    function clearFilter(){
+        window.location = '/admin/story';
+    }
+</script>
+<!-- JQUERY-3.6.0 -->
+<script th:src="@{/plugins/jquery-3.6.0.min.js}"></script>
+<!-- Bootstrap -->
+<script
+        type="text/javascript"
+        th:src="@{/plugins/bootstrap/bootstrap-5.2.0-beta1-dist/js/bootstrap.bundle.min.js}"
+></script>
+<!-- OWL-CORE-SCRIPT -->
+<script th:src="@{/plugins/owlcarousel/owl.carousel.min.js}"></script>
+<script th:src="@{/assets/js/owl-custom.js}"></script>
+</body>
+
+</html>

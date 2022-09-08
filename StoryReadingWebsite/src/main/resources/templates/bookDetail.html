@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Đọc Truyện Online</title>
+    <!-- Styles Global -->
+    <link rel="stylesheet" type="text/css" th:href="@{/assets/css/style.css}" />
+    <!-- Bootstrap -->
+    <link
+            rel="stylesheet"
+            type="text/css"
+            th:href="@{/plugins/bootstrap/bootstrap-5.2.0-beta1-dist/css/bootstrap.min.css}"
+    />
+    <!-- Font-AWS -->
+    <link
+            rel="stylesheet"
+            th:href="@{/plugins/fontawesome-free-6.1.1-web/css/all.min.css}"
+    />
+    <!-- OWL-Core-CSS -->
+    <link
+            rel="stylesheet"
+            th:href="@{/plugins/owlcarousel/assets/owl.carousel.min.css}"
+    />
+    <link
+            rel="stylesheet"
+            th:href="@{plugins/owlcarousel/assets/owl.theme.default.min.css}"
+    />
+</head>
+<body>
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" th:href="@{/}">Đọc Truyện Online</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mynavbar">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/}">Trang chủ</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Thể loại
+                    </a>
+                    <div class="dropdown-menu" style="background: #FFFFFF; width: 500px">
+                        <div th:with="partitions = ${T(org.apache.commons.collections4.ListUtils).partition(listCategories,3)}">
+                            <div class="row" th:each="partition : ${partitions}">
+                                <div class="col-sm-4" th:each="category : ${partition}">
+                                    <a class="dropdown-item p-2" th:href="|/stories/category/${category.id}|" th:text="${category.name}"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <form class="d-flex" th:action="@{/search}">
+                <input class="form-control me-2" type="text" placeholder="Search" name="keyword" th:value="${keyword}">
+                <button class="btn btn-primary" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
+        </div>
+    </div>
+</nav><br>
+<div class="container">
+    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a th:href="@{/}">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page" th:text="${story.title}">Library</li>
+        </ol>
+    </nav>
+    <hr class="ui-menu-divider">
+</div>
+<div class="container">
+    <p class="fs-4 text-uppercase fw-bolder">Thông tin truyện</p>
+    <hr class="ui-menu-divider">
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div style="margin-left: 100px">
+                <img th:src="@{${story.imagePath}}" style="width: 200px" class="rounded">
+                <br>
+                <p th:text="'Tác giả: ' +${story.author}" style=" font-size: 12px" >Tác Giả:</p>
+                <p th:text="'Thể loại: ' +${story.categories}" style=" font-size: 12px"></p>
+                <p th:text="'Nguồn truyện: '+${story.link}" style=" font-size: 12px"></p>
+                <p th:text="'Trạng Thái: '+${story.status.label}" style=" font-size: 12px"></p>
+            </div>
+        </div>
+        <div class="col">
+            <p th:text="${story.title}" class="fs-3 text-uppercase fw-bolder text-center"></p>
+            <hr>
+            <p class="text-center">Nội dung truyện:</p>
+            <pre style="white-space:pre-wrap; font-size: 12px" th:text="${story.description}"></pre>
+            <button onclick="myFunction()" id="myBtn">Read more</button>
+        </div>
+        <div class="col border border-dark rounded">
+            <p class="fs-5 text-uppercase fw-bolder" >Thể Loại Truyện</p>
+            <hr class="ui-menu-divider">
+            <th:block th:with="partitions = ${T(org.apache.commons.collections4.ListUtils).partition(listCategories,2)}">
+                <div class="row" th:each="partition : ${partitions}">
+                    <div class="col-sm-6 p-2 list-group" th:each="category : ${partition}">
+                    <a class="list-group-item list-group-item-action" th:href="|/story/category/${category.id}|" style="text-decoration: none; color: black;" th:text="${category.name}"></a>
+                    </div>
+                </div>
+            </th:block>
+        </div>
+    </div>
+    <hr class="ui-menu-divider">
+</div>
+<div class="container">
+    <p class="fs-4 text-uppercase fw-bolder">Danh sách chương</p>
+    <div class="row">
+        <hr class="ui-menu-divider">
+        <div class="col" >
+            <ul th:each="chapter : ${listChapters}">
+                <li>
+                    <a th:href="|/story/${story.id}/chapter/${chapter.id}|" th:text="${chapter.title}" style="text-decoration: none"></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <hr class="ui-menu-divider">
+</div>
+<div class="container">
+    <h3>Comment</h3>
+    <div class="container">
+        <form th:action="|/story/${story.id}|" th:object="${comment}" method="post">
+            <input type="hidden" th:field="*{id}"/>
+            <div>
+                <label class="form-label">Name: </label>
+                <input type="text" th:field="*{name}" class="form-control" required>
+            </div>
+            <div>
+                <label for="description" class="form-label">Comment</label>
+                <textarea class="form-control" th:field="*{content}" id="description" rows="3" cols="70" required></textarea>
+            </div><br>
+            <div class="d-flex flex-row-reverse">
+                <input type="submit" value="Add comment">
+            </div>
+        </form>
+    </div>
+    <hr class="ui-menu-divider">
+</div>
+<div class="container">
+    <div class="border border-3 rounded m-3 d-flex" th:each="comment: ${commentList}">
+        <div class="m-3">
+            <img src="/assets/images/avatar.jpg" class="rounded-circle" alt="avatar" style="width: 50px">
+        </div>
+        <div class="m-3">
+            <span class="fw-bold" th:text="${comment.name}"></span>
+            <p th:text="${comment.content}"></p>
+        </div>
+<!--            <td><a th:href="@{'/stories/'+ ${story.id} + '/comment/delete/' + ${comment.id}}"-->
+<!--                   class="btn btn-danger">Xóa</a></td>-->
+    </div>
+</div>
+<div>
+    <footer class="bg-light text-center">
+        <!-- Grid container -->
+        <div class="container p-4 pb-0">
+            <!-- Section: Form -->
+            <section class="">
+                <form action="">
+                    <!--Grid row-->
+                    <div class="row d-flex justify-content-center">
+                        Truyện Full - Đọc truyện online, đọc truyện chữ, truyện hay. Website luôn cập nhật những bộ truyện mới thuộc các thể loại đặc sắc như truyện tiên hiệp, truyện kiếm hiệp, hay truyện ngôn tình một cách nhanh nhất. Hỗ trợ mọi thiết bị như di động và máy tính bảng.
+                    </div>
+                    <!--Grid row-->
+                </form>
+            </section>
+            <!-- Section: Form -->
+        </div>
+        <!-- Grid container -->
+
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            © 2022 Copyright:
+            <a class="text-dark">Email: hoangdat3179@gmail.com</a>
+        </div>
+        <!-- Copyright -->
+    </footer>
+</div>
+<!-- JQUERY-3.6.0 -->
+<script th:src="@{/plugins/jquery-3.6.0.min.js}"></script>
+<!-- Bootstrap -->
+<script
+        type="text/javascript"
+        th:src="@{/plugins/bootstrap/bootstrap-5.2.0-beta1-dist/js/bootstrap.bundle.min.js}"
+></script>
+<!-- OWL-CORE-SCRIPT -->
+<script th:src="@{/plugins/owlcarousel/owl.carousel.min.js}"></script>
+<script th:src="@{/assets/js/owl-custom.js}"></script>
+</body>
+</html>

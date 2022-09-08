@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head >
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Đọc Truyện Online</title>
+  <!-- Styles Global -->
+  <link rel="stylesheet" type="text/css" th:href="@{/assets/css/style.css}" />
+  <!-- Bootstrap -->
+  <link
+          rel="stylesheet"
+          type="text/css"
+          th:href="@{/plugins/bootstrap/bootstrap-5.2.0-beta1-dist/css/bootstrap.min.css}"
+  />
+  <!-- Font-AWS -->
+  <link
+          rel="stylesheet"
+          th:href="@{/plugins/fontawesome-free-6.1.1-web/css/all.min.css}"
+  />
+  <!-- OWL-Core-CSS -->
+  <link
+          rel="stylesheet"
+          th:href="@{/plugins/owlcarousel/assets/owl.carousel.min.css}"
+  />
+  <link
+          rel="stylesheet"
+          th:href="@{plugins/owlcarousel/assets/owl.theme.default.min.css}"
+  />
+</head>
+  <body>
+  <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" th:href="@{/}">Đọc Truyện Online</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mynavbar">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link" th:href="@{/}">Trang chủ</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Thể loại
+            </a>
+            <div class="dropdown-menu" style="background: #FFFFFF; width: 500px">
+              <div th:with="partitions = ${T(org.apache.commons.collections4.ListUtils).partition(listCategories,3)}">
+                <div class="row" th:each="partition : ${partitions}">
+                  <div class="col-sm-4" th:each="category : ${partition}">
+                    <a class="dropdown-item p-2" th:href="|/story/category/${category.id}|" th:text="${category.name}"></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <form class="d-flex" th:action="@{/search}">
+          <input class="form-control me-2" type="text" placeholder="Search" name="keyword" th:value="${keyword}">
+          <button class="btn btn-primary" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
+      </div>
+    </div>
+  </nav><br>
+  <div class="container">
+  <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a th:href="@{/}">Home</a></li>
+    </ol>
+  </nav>
+    <hr class="ui-menu-divider">
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8" style="font-size: 30px; font-weight: 300">Tất Cả Truyện
+      <hr class="ui-menu-divider">
+        <div class="container">
+          <div class="row">
+          <div class="col-12 col-sm-3 col-md-3 border border-2 m-2 rounded" th:each="story : ${listStories}" >
+            <a th:href="|/story/${story.id}|" style="text-decoration: none"> <div class="p-2 bd-highlight">
+              <img th:src="@{${story.imagePath}}" class="rounded" style="width: 170px">
+                <p class="fs-5" th:text="${story.title}" style="width: 170px;"></p>
+            </div>
+            </a>
+          </div>
+        </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4" style="font-size: 30px; font-weight: 300">Top truyện
+        <hr class="ui-menu-divider">
+        <div class="container">
+          <div class="row list-group">
+            <div class="list-group-item">
+            <div class="col-12 d-flex m-2 " th:each="story : ${listStories}">
+              <a th:href="|/story/${story.id}|" style="text-decoration: none">
+                <img th:src="@{${story.imagePath}}" class="m-2" style="width: 100px">
+              </a>
+              <div class="m-3">
+                <a th:href="|/story/${story.id}|" style="text-decoration: none">
+                  <p class="fs-5" th:text="${story.title}" ></p>
+                </a>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8" style="font-size: 30px; font-weight: 300">Truyện đã hoàn thành
+      <hr class="ui-menu-divider">
+      <div class="container">
+        <div class="row">
+    <div class="col-12 col-sm-3 col-md-3 border border-2 m-2 rounded" th:each="story : ${storyFull}" >
+      <a th:href="|/story/${story.id}|" style="text-decoration: none"> <div class="p-2 bd-highlight">
+        <img th:src="@{${story.imagePath}}" class="rounded" style="width: 170px">
+        <p class="fs-5" th:text="${story.title}" style="width: 170px;"></p>
+      </div>
+      </a>
+    </div>
+  </div>
+</div>
+    </div>
+  </div>
+</div>
+  <div >
+    <footer class="bg-light text-center">
+      <!-- Grid container -->
+      <div class="container p-4 pb-0">
+        <!-- Section: Form -->
+        <section class="">
+          <form action="">
+            <!--Grid row-->
+            <div class="row d-flex justify-content-center">
+              Truyện Full - Đọc truyện online, đọc truyện chữ, truyện hay. Website luôn cập nhật những bộ truyện mới thuộc các thể loại đặc sắc như truyện tiên hiệp, truyện kiếm hiệp, hay truyện ngôn tình một cách nhanh nhất. Hỗ trợ mọi thiết bị như di động và máy tính bảng.
+            </div>
+            <!--Grid row-->
+          </form>
+        </section>
+        <!-- Section: Form -->
+      </div>
+      <!-- Grid container -->
+
+      <!-- Copyright -->
+      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        © 2022 Copyright:
+        <a class="text-dark">Email: hoangdat3179@gmail.com</a>
+      </div>
+      <!-- Copyright -->
+    </footer>
+  </div>
+
+
+  <!-- JQUERY-3.6.0 -->
+  <script th:src="@{/plugins/jquery-3.6.0.min.js}"></script>
+  <!-- Bootstrap -->
+  <script
+          type="text/javascript"
+          th:src="@{/plugins/bootstrap/bootstrap-5.2.0-beta1-dist/js/bootstrap.bundle.min.js}"
+  ></script>
+  <!-- OWL-CORE-SCRIPT -->
+  <script th:src="@{/plugins/owlcarousel/owl.carousel.min.js}"></script>
+  <script th:src="@{/assets/js/owl-custom.js}"></script>
+  </body>
+</html>

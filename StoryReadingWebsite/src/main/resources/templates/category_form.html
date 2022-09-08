@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head >
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Manager</title>
+    <!-- Styles Global -->
+    <link rel="stylesheet" type="text/css" th:href="@{/assets/css/style.css}" />
+    <!-- Bootstrap -->
+    <link
+            rel="stylesheet"
+            type="text/css"
+            th:href="@{/plugins/bootstrap/bootstrap-5.2.0-beta1-dist/css/bootstrap.min.css}"
+    />
+    <!-- Font-AWS -->
+    <link
+            rel="stylesheet"
+            th:href="@{/plugins/fontawesome-free-6.1.1-web/css/all.min.css}"
+    />
+    <!-- OWL-Core-CSS -->
+    <link
+            rel="stylesheet"
+            th:href="@{/plugins/owlcarousel/assets/owl.carousel.min.css}"
+    />
+    <link
+            rel="stylesheet"
+            th:href="@{plugins/owlcarousel/assets/owl.theme.default.min.css}"
+    />
+</head>
+
+<body>
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark" >
+    <div class="container-fluid">
+        <a class="navbar-brand" href="javascript:void(0)">AdminPage</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mynavbar">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/admin/stories}">Quản Lý Truyện</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/admin/categories}">Danh sách thể loại</a>
+                </li>
+            </ul>
+            <form th:action="@{/admin/logout}" method="post">
+                <input type="submit" value="Logout" />
+            </form>
+        </div>
+    </div>
+</nav>
+<div class="container-fluid text-center">
+    <div th:if="${category.id == null}"><h1>Thêm mới thể loại</h1></div>
+    <div th:unless="${category.id == null}"><h1>Sửa thể loại</h1></div>
+    <form th:action="@{/admin/category/save}" th:object="${category}" method="post" style="max-width: 600px; margin: 0 auto;">
+        <input type="hidden" th:field="*{id}"/>
+        <div class="m-3">
+            <div class="form-group row">
+                <label class="col-form-label col-sm-4">Name: </label>
+                <div class="col-sm-8">
+                    <input type="text" th:field="*{name}" class="form-control" required>
+                </div>
+                <p th:if="${#fields.hasErrors('name')}" style="color: red">Thể loại đã tồn tại</p>
+            <div class="text-center p-3">
+                <button type="submit" class="btn btn-primary">Lưu</button>
+            </div>
+        </div>
+            </div>
+    </form>
+</div>
+<!-- JQUERY-3.6.0 -->
+<script th:src="@{/plugins/jquery-3.6.0.min.js}"></script>
+<!-- Bootstrap -->
+<script
+        type="text/javascript"
+        th:src="@{/plugins/bootstrap/bootstrap-5.2.0-beta1-dist/js/bootstrap.bundle.min.js}"
+></script>
+<!-- OWL-CORE-SCRIPT -->
+<script th:src="@{/plugins/owlcarousel/owl.carousel.min.js}"></script>
+<script th:src="@{/assets/js/owl-custom.js}"></script>
+</body>
+
+</html>
