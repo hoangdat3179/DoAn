@@ -145,7 +145,7 @@ public class MainController {
         model.addAttribute("totalPages", totalPages);
         model.addAttribute("totalItems", totalItems);
         model.addAttribute("listChapter", listChapter);
-        return "chapterBook";
+        return "chapterPaging";
     }
 
 }

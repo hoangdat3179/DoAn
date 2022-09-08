@@ -1270,3 +1270,226 @@ java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '1' for key '
 2022-09-07 21:20:34.477  INFO 14656 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2022-09-07 21:20:34.477  INFO 14656 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2022-09-07 21:20:34.477  INFO 14656 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-09-08 14:16:37.348  INFO 5224 --- [restartedMain] v.t.s.StoryReadingWebsiteApplication     : Starting StoryReadingWebsiteApplication using Java 17.0.3 on DESKTOP-UK4D7GR with PID 5224 (D:\Techmaster\DoAn\StoryReadingWebsite\target\classes started by Hoang Dat in D:\Techmaster\DoAn\StoryReadingWebsite)
+2022-09-08 14:16:37.350  INFO 5224 --- [restartedMain] v.t.s.StoryReadingWebsiteApplication     : No active profile set, falling back to 1 default profile: "default"
+2022-09-08 14:16:37.419  INFO 5224 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-09-08 14:16:37.419  INFO 5224 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-09-08 14:16:38.301  INFO 5224 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-09-08 14:16:38.391  INFO 5224 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 80 ms. Found 5 JPA repository interfaces.
+2022-09-08 14:16:38.976  INFO 5224 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-09-08 14:16:38.982  INFO 5224 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-09-08 14:16:38.983  INFO 5224 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.64]
+2022-09-08 14:16:39.072  INFO 5224 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-09-08 14:16:39.072  INFO 5224 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1652 ms
+2022-09-08 14:16:39.099  INFO 5224 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-09-08 14:16:39.103  WARN 5224 --- [restartedMain] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2022-09-08 14:16:39.250  INFO 5224 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-09-08 14:16:39.260  INFO 5224 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/truyendb?createDatabaseIfNotExist=true&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC'
+2022-09-08 14:16:39.425  INFO 5224 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-09-08 14:16:39.465  INFO 5224 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.9.Final
+2022-09-08 14:16:39.584  INFO 5224 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-09-08 14:16:39.668  INFO 5224 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2022-09-08 14:16:40.397  INFO 5224 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-09-08 14:16:40.407  INFO 5224 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-09-08 14:16:41.162  INFO 5224 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/admin/**'] with [org.springframework.security.web.session.DisableEncodeUrlFilter@22198fca, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2158477b, org.springframework.security.web.context.SecurityContextPersistenceFilter@4e96019b, org.springframework.security.web.header.HeaderWriterFilter@6dcb314, org.springframework.security.web.csrf.CsrfFilter@47b7ceeb, org.springframework.security.web.authentication.logout.LogoutFilter@30bb4202, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@46ff64e2, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@23483988, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@641605e0, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@74572b6, org.springframework.security.web.session.SessionManagementFilter@2fab937f, org.springframework.security.web.access.ExceptionTranslationFilter@3956039, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2e7f5ef]
+2022-09-08 14:16:41.286  WARN 5224 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-09-08 14:16:41.432  INFO 5224 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-09-08 14:16:42.448  INFO 5224 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-09-08 14:16:42.508  INFO 5224 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-09-08 14:16:42.522  INFO 5224 --- [restartedMain] v.t.s.StoryReadingWebsiteApplication     : Started StoryReadingWebsiteApplication in 6.182 seconds (JVM running for 7.738)
+2022-09-08 14:16:49.326  INFO 5224 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-09-08 14:16:49.326  INFO 5224 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-09-08 14:16:49.328  INFO 5224 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2022-09-08 14:16:50.355 ERROR 5224 --- [http-nio-8080-exec-1] v.t.s.controller.CustomErrorController   : Lỗi 404
+2022-09-08 14:16:51.339 ERROR 5224 --- [http-nio-8080-exec-8] v.t.s.controller.CustomErrorController   : Lỗi 404
+2022-09-08 14:17:32.598  INFO 5224 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-09-08 14:17:32.602  INFO 5224 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-09-08 14:17:32.608  INFO 5224 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-09-08 14:17:38.697  INFO 17616 --- [restartedMain] v.t.s.StoryReadingWebsiteApplication     : Starting StoryReadingWebsiteApplication using Java 17.0.3 on DESKTOP-UK4D7GR with PID 17616 (D:\Techmaster\DoAn\StoryReadingWebsite\target\classes started by Hoang Dat in D:\Techmaster\DoAn\StoryReadingWebsite)
+2022-09-08 14:17:38.699  INFO 17616 --- [restartedMain] v.t.s.StoryReadingWebsiteApplication     : No active profile set, falling back to 1 default profile: "default"
+2022-09-08 14:17:38.749  INFO 17616 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-09-08 14:17:38.750  INFO 17616 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-09-08 14:17:39.604  INFO 17616 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-09-08 14:17:39.690  INFO 17616 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 75 ms. Found 5 JPA repository interfaces.
+2022-09-08 14:17:40.272  INFO 17616 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-09-08 14:17:40.279  INFO 17616 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-09-08 14:17:40.279  INFO 17616 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.64]
+2022-09-08 14:17:40.380  INFO 17616 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-09-08 14:17:40.381  INFO 17616 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1631 ms
+2022-09-08 14:17:40.419  INFO 17616 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-09-08 14:17:40.424  WARN 17616 --- [restartedMain] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2022-09-08 14:17:40.564  INFO 17616 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-09-08 14:17:40.574  INFO 17616 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/truyendb?createDatabaseIfNotExist=true&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC'
+2022-09-08 14:17:40.681  INFO 17616 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-09-08 14:17:40.719  INFO 17616 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.9.Final
+2022-09-08 14:17:40.840  INFO 17616 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-09-08 14:17:40.918  INFO 17616 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2022-09-08 14:17:41.554  INFO 17616 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-09-08 14:17:41.560  INFO 17616 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-09-08 14:17:42.167  INFO 17616 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/admin/**'] with [org.springframework.security.web.session.DisableEncodeUrlFilter@2f076c66, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@32c88f3, org.springframework.security.web.context.SecurityContextPersistenceFilter@5b37f144, org.springframework.security.web.header.HeaderWriterFilter@330a8ede, org.springframework.security.web.csrf.CsrfFilter@4312e921, org.springframework.security.web.authentication.logout.LogoutFilter@65600ac7, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@5417c5bf, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@71d52dad, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@58ddb4e6, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@655d34aa, org.springframework.security.web.session.SessionManagementFilter@66db5dd5, org.springframework.security.web.access.ExceptionTranslationFilter@1a724a20, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@174b94e8]
+2022-09-08 14:17:42.292  WARN 17616 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-09-08 14:17:42.426  INFO 17616 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-09-08 14:17:43.472  INFO 17616 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-09-08 14:17:43.519  INFO 17616 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-09-08 14:17:43.537  INFO 17616 --- [restartedMain] v.t.s.StoryReadingWebsiteApplication     : Started StoryReadingWebsiteApplication in 5.253 seconds (JVM running for 6.292)
+2022-09-08 14:18:27.116  INFO 17616 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-09-08 14:18:27.121  INFO 17616 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-09-08 14:18:27.127  INFO 17616 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-09-08 14:18:30.872  INFO 13548 --- [restartedMain] v.t.s.StoryReadingWebsiteApplication     : Starting StoryReadingWebsiteApplication using Java 17.0.3 on DESKTOP-UK4D7GR with PID 13548 (D:\Techmaster\DoAn\StoryReadingWebsite\target\classes started by Hoang Dat in D:\Techmaster\DoAn\StoryReadingWebsite)
+2022-09-08 14:18:30.874  INFO 13548 --- [restartedMain] v.t.s.StoryReadingWebsiteApplication     : No active profile set, falling back to 1 default profile: "default"
+2022-09-08 14:18:30.920  INFO 13548 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-09-08 14:18:30.920  INFO 13548 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-09-08 14:18:31.670  INFO 13548 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-09-08 14:18:31.747  INFO 13548 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 68 ms. Found 5 JPA repository interfaces.
+2022-09-08 14:18:32.351  INFO 13548 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-09-08 14:18:32.359  INFO 13548 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-09-08 14:18:32.359  INFO 13548 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.64]
+2022-09-08 14:18:32.457  INFO 13548 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-09-08 14:18:32.458  INFO 13548 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1537 ms
+2022-09-08 14:18:32.484  INFO 13548 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-09-08 14:18:32.487  WARN 13548 --- [restartedMain] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2022-09-08 14:18:32.591  INFO 13548 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-09-08 14:18:32.599  INFO 13548 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/truyendb?createDatabaseIfNotExist=true&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC'
+2022-09-08 14:18:32.717  INFO 13548 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-09-08 14:18:32.753  INFO 13548 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.9.Final
+2022-09-08 14:18:32.882  INFO 13548 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-09-08 14:18:32.957  INFO 13548 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2022-09-08 14:18:33.611  INFO 13548 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-09-08 14:18:33.619  INFO 13548 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-09-08 14:18:34.263  INFO 13548 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/admin/**'] with [org.springframework.security.web.session.DisableEncodeUrlFilter@57077da7, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@265db7be, org.springframework.security.web.context.SecurityContextPersistenceFilter@6fc33682, org.springframework.security.web.header.HeaderWriterFilter@754554b7, org.springframework.security.web.csrf.CsrfFilter@1e73e304, org.springframework.security.web.authentication.logout.LogoutFilter@2f37e3e2, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@6e78f917, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@b2c9d45, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@636f72c0, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7bdf724e, org.springframework.security.web.session.SessionManagementFilter@7a5a206d, org.springframework.security.web.access.ExceptionTranslationFilter@676f8afd, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@31b7e1d3]
+2022-09-08 14:18:34.398  WARN 13548 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-09-08 14:18:34.555  INFO 13548 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-09-08 14:18:35.572  INFO 13548 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-09-08 14:18:35.623  INFO 13548 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-09-08 14:18:35.637  INFO 13548 --- [restartedMain] v.t.s.StoryReadingWebsiteApplication     : Started StoryReadingWebsiteApplication in 5.159 seconds (JVM running for 6.056)
+2022-09-08 14:18:38.980  INFO 13548 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-09-08 14:18:38.981  INFO 13548 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-09-08 14:18:38.982  INFO 13548 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-09-08 14:18:39.458 ERROR 13548 --- [http-nio-8080-exec-7] v.t.s.controller.CustomErrorController   : Lỗi 404
+2022-09-08 14:19:37.305 ERROR 13548 --- [http-nio-8080-exec-4] v.t.s.controller.CustomErrorController   : Lỗi 404
+2022-09-08 14:19:39.704 ERROR 13548 --- [http-nio-8080-exec-6] v.t.s.controller.CustomErrorController   : Lỗi 404
+2022-09-08 14:19:49.897 ERROR 13548 --- [http-nio-8080-exec-7] v.t.s.controller.CustomErrorController   : Lỗi 404
+2022-09-08 14:19:53.126 ERROR 13548 --- [http-nio-8080-exec-7] v.t.s.controller.CustomErrorController   : Lỗi 404
+2022-09-08 14:19:54.229 ERROR 13548 --- [http-nio-8080-exec-1] v.t.s.controller.CustomErrorController   : Lỗi 404
+2022-09-08 14:19:57.429 ERROR 13548 --- [http-nio-8080-exec-8] v.t.s.controller.CustomErrorController   : Lỗi 404
+2022-09-08 14:20:01.203 ERROR 13548 --- [http-nio-8080-exec-8] v.t.s.controller.CustomErrorController   : Lỗi 404
+2022-09-08 14:20:02.551 ERROR 13548 --- [http-nio-8080-exec-4] v.t.s.controller.CustomErrorController   : Lỗi 404
+2022-09-08 14:20:04.627 ERROR 13548 --- [http-nio-8080-exec-6] v.t.s.controller.CustomErrorController   : Lỗi 404
+2022-09-08 14:20:06.962 ERROR 13548 --- [http-nio-8080-exec-6] v.t.s.controller.CustomErrorController   : Lỗi 404
+2022-09-08 14:20:07.615 ERROR 13548 --- [http-nio-8080-exec-4] v.t.s.controller.CustomErrorController   : Lỗi 404
+2022-09-08 14:20:07.618 ERROR 13548 --- [http-nio-8080-exec-1] v.t.s.controller.CustomErrorController   : Lỗi 404
+2022-09-08 14:20:08.627 ERROR 13548 --- [http-nio-8080-exec-7] v.t.s.controller.CustomErrorController   : Lỗi 404
+2022-09-08 14:20:08.630 ERROR 13548 --- [http-nio-8080-exec-9] v.t.s.controller.CustomErrorController   : Lỗi 404
+2022-09-08 14:20:09.275 ERROR 13548 --- [http-nio-8080-exec-7] v.t.s.controller.CustomErrorController   : Lỗi 404
+2022-09-08 14:20:09.279 ERROR 13548 --- [http-nio-8080-exec-5] v.t.s.controller.CustomErrorController   : Lỗi 404
+2022-09-08 14:20:10.030 ERROR 13548 --- [http-nio-8080-exec-8] v.t.s.controller.CustomErrorController   : Lỗi 404
+2022-09-08 14:20:10.035 ERROR 13548 --- [http-nio-8080-exec-6] v.t.s.controller.CustomErrorController   : Lỗi 404
+2022-09-08 14:20:10.524 ERROR 13548 --- [http-nio-8080-exec-1] v.t.s.controller.CustomErrorController   : Lỗi 404
+2022-09-08 14:20:10.524 ERROR 13548 --- [http-nio-8080-exec-8] v.t.s.controller.CustomErrorController   : Lỗi 404
+2022-09-08 14:20:11.017 ERROR 13548 --- [http-nio-8080-exec-8] v.t.s.controller.CustomErrorController   : Lỗi 404
+2022-09-08 14:20:11.019 ERROR 13548 --- [http-nio-8080-exec-6] v.t.s.controller.CustomErrorController   : Lỗi 404
+2022-09-08 14:20:11.427 ERROR 13548 --- [http-nio-8080-exec-6] v.t.s.controller.CustomErrorController   : Lỗi 404
+2022-09-08 14:20:11.428 ERROR 13548 --- [http-nio-8080-exec-3] v.t.s.controller.CustomErrorController   : Lỗi 404
+2022-09-08 14:20:11.876 ERROR 13548 --- [http-nio-8080-exec-3] v.t.s.controller.CustomErrorController   : Lỗi 404
+2022-09-08 14:20:11.880 ERROR 13548 --- [http-nio-8080-exec-9] v.t.s.controller.CustomErrorController   : Lỗi 404
+2022-09-08 14:20:12.327 ERROR 13548 --- [http-nio-8080-exec-2] v.t.s.controller.CustomErrorController   : Lỗi 404
+2022-09-08 14:20:12.327 ERROR 13548 --- [http-nio-8080-exec-9] v.t.s.controller.CustomErrorController   : Lỗi 404
+2022-09-08 14:20:12.758 ERROR 13548 --- [http-nio-8080-exec-2] v.t.s.controller.CustomErrorController   : Lỗi 404
+2022-09-08 14:20:12.760 ERROR 13548 --- [http-nio-8080-exec-6] v.t.s.controller.CustomErrorController   : Lỗi 404
+2022-09-08 14:20:13.394 ERROR 13548 --- [http-nio-8080-exec-5] v.t.s.controller.CustomErrorController   : Lỗi 404
+2022-09-08 14:20:13.396 ERROR 13548 --- [http-nio-8080-exec-8] v.t.s.controller.CustomErrorController   : Lỗi 404
+2022-09-08 14:20:13.940 ERROR 13548 --- [http-nio-8080-exec-10] v.t.s.controller.CustomErrorController   : Lỗi 404
+2022-09-08 14:20:13.942 ERROR 13548 --- [http-nio-8080-exec-8] v.t.s.controller.CustomErrorController   : Lỗi 404
+2022-09-08 14:20:14.642 ERROR 13548 --- [http-nio-8080-exec-8] v.t.s.controller.CustomErrorController   : Lỗi 404
+2022-09-08 14:20:14.646 ERROR 13548 --- [http-nio-8080-exec-4] v.t.s.controller.CustomErrorController   : Lỗi 404
+2022-09-08 14:20:15.345 ERROR 13548 --- [http-nio-8080-exec-4] v.t.s.controller.CustomErrorController   : Lỗi 404
+2022-09-08 14:20:15.346 ERROR 13548 --- [http-nio-8080-exec-3] v.t.s.controller.CustomErrorController   : Lỗi 404
+2022-09-08 14:22:08.402  INFO 13548 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-09-08 14:22:08.406  INFO 13548 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-09-08 14:22:08.412  INFO 13548 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-09-08 14:22:14.491  INFO 17404 --- [restartedMain] v.t.s.StoryReadingWebsiteApplication     : Starting StoryReadingWebsiteApplication using Java 17.0.3 on DESKTOP-UK4D7GR with PID 17404 (D:\Techmaster\DoAn\StoryReadingWebsite\target\classes started by Hoang Dat in D:\Techmaster\DoAn\StoryReadingWebsite)
+2022-09-08 14:22:14.493  INFO 17404 --- [restartedMain] v.t.s.StoryReadingWebsiteApplication     : No active profile set, falling back to 1 default profile: "default"
+2022-09-08 14:22:14.542  INFO 17404 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-09-08 14:22:14.542  INFO 17404 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-09-08 14:22:15.275  INFO 17404 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-09-08 14:22:15.345  INFO 17404 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 61 ms. Found 5 JPA repository interfaces.
+2022-09-08 14:22:15.897  INFO 17404 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-09-08 14:22:15.904  INFO 17404 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-09-08 14:22:15.904  INFO 17404 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.64]
+2022-09-08 14:22:15.992  INFO 17404 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-09-08 14:22:15.993  INFO 17404 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1450 ms
+2022-09-08 14:22:16.020  INFO 17404 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-09-08 14:22:16.024  WARN 17404 --- [restartedMain] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2022-09-08 14:22:16.149  INFO 17404 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-09-08 14:22:16.159  INFO 17404 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/truyendb?createDatabaseIfNotExist=true&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC'
+2022-09-08 14:22:16.222  WARN 17404 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Cannot deserialize session attribute [SPRING_SECURITY_CONTEXT] for session [DD4876321D410CF4E4A79A6020D3B947]
+2022-09-08 14:22:16.290  INFO 17404 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-09-08 14:22:16.325  INFO 17404 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.9.Final
+2022-09-08 14:22:16.447  INFO 17404 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-09-08 14:22:16.523  INFO 17404 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2022-09-08 14:22:17.155  INFO 17404 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-09-08 14:22:17.162  INFO 17404 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-09-08 14:22:17.742  INFO 17404 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/admin/**'] with [org.springframework.security.web.session.DisableEncodeUrlFilter@d77d23a, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@197eea56, org.springframework.security.web.context.SecurityContextPersistenceFilter@5dccb8d9, org.springframework.security.web.header.HeaderWriterFilter@6ac5197, org.springframework.security.web.csrf.CsrfFilter@2ef9c8aa, org.springframework.security.web.authentication.logout.LogoutFilter@725455d5, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@474a0f67, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@16bc1545, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6e97735d, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@ed8ff29, org.springframework.security.web.session.SessionManagementFilter@6792c5ce, org.springframework.security.web.access.ExceptionTranslationFilter@694f55d, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2bf90eae]
+2022-09-08 14:22:17.870  WARN 17404 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-09-08 14:22:17.998  INFO 17404 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-09-08 14:22:18.972  INFO 17404 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-09-08 14:22:19.016  INFO 17404 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-09-08 14:22:19.030  INFO 17404 --- [restartedMain] v.t.s.StoryReadingWebsiteApplication     : Started StoryReadingWebsiteApplication in 4.994 seconds (JVM running for 5.914)
+2022-09-08 14:22:20.855  INFO 17404 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-09-08 14:22:20.856  INFO 17404 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-09-08 14:22:20.858  INFO 17404 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2022-09-08 14:22:21.436 ERROR 17404 --- [http-nio-8080-exec-1] v.t.s.controller.CustomErrorController   : Lỗi 404
+2022-09-08 14:22:21.436 ERROR 17404 --- [http-nio-8080-exec-8] v.t.s.controller.CustomErrorController   : Lỗi 404
+2022-09-08 14:22:22.626 ERROR 17404 --- [http-nio-8080-exec-1] v.t.s.controller.CustomErrorController   : Lỗi 404
+2022-09-08 14:22:22.626 ERROR 17404 --- [http-nio-8080-exec-8] v.t.s.controller.CustomErrorController   : Lỗi 404
+2022-09-08 14:22:23.126 ERROR 17404 --- [http-nio-8080-exec-6] v.t.s.controller.CustomErrorController   : Lỗi 404
+2022-09-08 14:22:23.136 ERROR 17404 --- [http-nio-8080-exec-2] v.t.s.controller.CustomErrorController   : Lỗi 404
+2022-09-08 14:22:24.474 ERROR 17404 --- [http-nio-8080-exec-3] v.t.s.controller.CustomErrorController   : Lỗi 404
+2022-09-08 14:22:24.475 ERROR 17404 --- [http-nio-8080-exec-4] v.t.s.controller.CustomErrorController   : Lỗi 404
+2022-09-08 14:22:25.561 ERROR 17404 --- [http-nio-8080-exec-2] v.t.s.controller.CustomErrorController   : Lỗi 404
+2022-09-08 14:22:25.564 ERROR 17404 --- [http-nio-8080-exec-4] v.t.s.controller.CustomErrorController   : Lỗi 404
+2022-09-08 14:22:26.855 ERROR 17404 --- [http-nio-8080-exec-3] v.t.s.controller.CustomErrorController   : Lỗi 404
+2022-09-08 14:22:26.860 ERROR 17404 --- [http-nio-8080-exec-8] v.t.s.controller.CustomErrorController   : Lỗi 404
+2022-09-08 14:22:27.836 ERROR 17404 --- [http-nio-8080-exec-7] v.t.s.controller.CustomErrorController   : Lỗi 404
+2022-09-08 14:22:27.841 ERROR 17404 --- [http-nio-8080-exec-5] v.t.s.controller.CustomErrorController   : Lỗi 404
+2022-09-08 14:22:29.352 ERROR 17404 --- [http-nio-8080-exec-6] v.t.s.controller.CustomErrorController   : Lỗi 404
+2022-09-08 14:22:29.358 ERROR 17404 --- [http-nio-8080-exec-5] v.t.s.controller.CustomErrorController   : Lỗi 404
+2022-09-08 14:22:30.265 ERROR 17404 --- [http-nio-8080-exec-5] v.t.s.controller.CustomErrorController   : Lỗi 404
+2022-09-08 14:22:30.269 ERROR 17404 --- [http-nio-8080-exec-1] v.t.s.controller.CustomErrorController   : Lỗi 404
+2022-09-08 14:22:30.985 ERROR 17404 --- [http-nio-8080-exec-3] v.t.s.controller.CustomErrorController   : Lỗi 404
+2022-09-08 14:22:30.987 ERROR 17404 --- [http-nio-8080-exec-4] v.t.s.controller.CustomErrorController   : Lỗi 404
+2022-09-08 14:22:31.571 ERROR 17404 --- [http-nio-8080-exec-7] v.t.s.controller.CustomErrorController   : Lỗi 404
+2022-09-08 14:22:31.571 ERROR 17404 --- [http-nio-8080-exec-9] v.t.s.controller.CustomErrorController   : Lỗi 404
+2022-09-08 14:22:32.156 ERROR 17404 --- [http-nio-8080-exec-3] v.t.s.controller.CustomErrorController   : Lỗi 404
+2022-09-08 14:22:32.163 ERROR 17404 --- [http-nio-8080-exec-10] v.t.s.controller.CustomErrorController   : Lỗi 404
+2022-09-08 14:22:32.808 ERROR 17404 --- [http-nio-8080-exec-10] v.t.s.controller.CustomErrorController   : Lỗi 404
+2022-09-08 14:22:32.811 ERROR 17404 --- [http-nio-8080-exec-8] v.t.s.controller.CustomErrorController   : Lỗi 404
+2022-09-08 14:22:33.396 ERROR 17404 --- [http-nio-8080-exec-10] v.t.s.controller.CustomErrorController   : Lỗi 404
+2022-09-08 14:22:33.399 ERROR 17404 --- [http-nio-8080-exec-1] v.t.s.controller.CustomErrorController   : Lỗi 404
+2022-09-08 14:22:33.988 ERROR 17404 --- [http-nio-8080-exec-1] v.t.s.controller.CustomErrorController   : Lỗi 404
+2022-09-08 14:22:33.991 ERROR 17404 --- [http-nio-8080-exec-9] v.t.s.controller.CustomErrorController   : Lỗi 404
+2022-09-08 14:22:36.467 ERROR 17404 --- [http-nio-8080-exec-9] v.t.s.controller.CustomErrorController   : Lỗi 404
+2022-09-08 14:22:36.470 ERROR 17404 --- [http-nio-8080-exec-6] v.t.s.controller.CustomErrorController   : Lỗi 404
+2022-09-08 14:22:37.411 ERROR 17404 --- [http-nio-8080-exec-8] v.t.s.controller.CustomErrorController   : Lỗi 404
+2022-09-08 14:22:37.413 ERROR 17404 --- [http-nio-8080-exec-4] v.t.s.controller.CustomErrorController   : Lỗi 404
+2022-09-08 14:22:38.555 ERROR 17404 --- [http-nio-8080-exec-8] v.t.s.controller.CustomErrorController   : Lỗi 404
+2022-09-08 14:22:38.560 ERROR 17404 --- [http-nio-8080-exec-7] v.t.s.controller.CustomErrorController   : Lỗi 404
+2022-09-08 14:22:39.444 ERROR 17404 --- [http-nio-8080-exec-1] v.t.s.controller.CustomErrorController   : Lỗi 404
+2022-09-08 14:22:39.444 ERROR 17404 --- [http-nio-8080-exec-7] v.t.s.controller.CustomErrorController   : Lỗi 404
+2022-09-08 14:22:40.542 ERROR 17404 --- [http-nio-8080-exec-6] v.t.s.controller.CustomErrorController   : Lỗi 404
+2022-09-08 14:22:40.543 ERROR 17404 --- [http-nio-8080-exec-7] v.t.s.controller.CustomErrorController   : Lỗi 404
+2022-09-08 14:22:41.094 ERROR 17404 --- [http-nio-8080-exec-7] v.t.s.controller.CustomErrorController   : Lỗi 404
+2022-09-08 14:22:41.097 ERROR 17404 --- [http-nio-8080-exec-4] v.t.s.controller.CustomErrorController   : Lỗi 404
+2022-09-08 14:22:41.630 ERROR 17404 --- [http-nio-8080-exec-1] v.t.s.controller.CustomErrorController   : Lỗi 404
+2022-09-08 14:22:41.631 ERROR 17404 --- [http-nio-8080-exec-4] v.t.s.controller.CustomErrorController   : Lỗi 404
+2022-09-08 14:22:42.115 ERROR 17404 --- [http-nio-8080-exec-1] v.t.s.controller.CustomErrorController   : Lỗi 404
+2022-09-08 14:22:42.120 ERROR 17404 --- [http-nio-8080-exec-6] v.t.s.controller.CustomErrorController   : Lỗi 404
+2022-09-08 14:22:42.987 ERROR 17404 --- [http-nio-8080-exec-3] v.t.s.controller.CustomErrorController   : Lỗi 404
+2022-09-08 14:22:42.987 ERROR 17404 --- [http-nio-8080-exec-10] v.t.s.controller.CustomErrorController   : Lỗi 404
+2022-09-08 14:22:44.012 ERROR 17404 --- [http-nio-8080-exec-10] v.t.s.controller.CustomErrorController   : Lỗi 404
+2022-09-08 14:22:44.017 ERROR 17404 --- [http-nio-8080-exec-4] v.t.s.controller.CustomErrorController   : Lỗi 404
+2022-09-08 14:22:53.331 ERROR 17404 --- [http-nio-8080-exec-6] v.t.s.controller.CustomErrorController   : Lỗi 404
+2022-09-08 14:22:56.028 ERROR 17404 --- [http-nio-8080-exec-9] v.t.s.controller.CustomErrorController   : Lỗi 404
+2022-09-08 14:23:05.642  INFO 17404 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-09-08 14:23:05.648  INFO 17404 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-09-08 14:23:05.655  INFO 17404 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
