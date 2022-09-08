@@ -81,6 +81,8 @@
             <div style="margin-left: 100px">
                 <img th:src="@{${story.imagePath}}" style="width: 200px" class="rounded">
                 <br>
+                <br>
+                <hr class="ui-menu-divider">
                 <p th:text="'Tác giả: ' +${story.author}"  >Tác Giả:</p>
                 <p th:text="'Thể loại: ' +${story.categories}" ></p>
                 <p th:text="'Nguồn truyện: '+${story.link}" ></p>
@@ -91,7 +93,7 @@
             <p th:text="${story.title}" class="fs-3 text-uppercase fw-bolder text-center"></p>
             <hr>
             <p class="text-center">Nội dung truyện:</p>
-            <pre style="white-space:pre-wrap" th:text="${story.description}"></pre>
+            <pre style="white-space:pre-wrap; font-size: 15px" th:text="${story.description}"></pre>
         </div>
         <div class="col border border-dark rounded">
             <p class="fs-5 text-uppercase fw-bolder" >Thể Loại Truyện</p>
