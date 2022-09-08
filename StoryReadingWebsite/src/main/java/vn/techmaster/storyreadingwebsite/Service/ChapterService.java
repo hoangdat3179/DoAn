@@ -18,8 +18,11 @@ public class ChapterService {
 
     /*Lấy danh sách chapter và phân trang*/
     public Page<Chapter> listAll(int pageNum) {
+
+        //Sắp xếp theo id tăng dần
         Sort sort = Sort.by("id").ascending();
 
+        //Phân trang
         Pageable pageable = PageRequest.of(pageNum - 1, 1, sort);
         return chapterRepository.findByPage(pageable);
     }

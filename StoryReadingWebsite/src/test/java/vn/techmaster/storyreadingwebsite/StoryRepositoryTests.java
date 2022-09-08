@@ -17,7 +17,7 @@ import java.util.List;
 
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
-@Rollback(false)
+@Rollback(false) // Cho phép thay đổi trong database
 public class StoryRepositoryTests {
 
     @Autowired

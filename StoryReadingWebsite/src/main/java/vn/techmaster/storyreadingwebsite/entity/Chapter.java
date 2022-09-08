@@ -7,15 +7,13 @@ import org.springframework.format.annotation.DateTimeFormat;
 import vn.techmaster.storyreadingwebsite.utils.DateUtils;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.Date;
 
 @Entity(name = "chapter")
 @Table(name = "chapter")
 @Data
 @NoArgsConstructor
-public class Chapter implements Serializable {
-    private static final long serialVersionUID = 1L;
+public class Chapter {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

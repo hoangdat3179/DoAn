@@ -54,13 +54,22 @@ public class MainController {
     // Lấy truyện theo ID và comment
     @GetMapping(value = "/story/{id}")
     public String showBookDetailByID(Model model, @PathVariable("id") Long id) {
+        //Tìm id truyện
         Story story = storyRepo.findById(id).get();
         List<Category> listCategories = categoryRepo.findAll();
+
+        //Liệt kê chapter theo id truyện
         List<Chapter> listChapters = chapterRepo.findByStoryId(id);
+
+        //Liệt kê bình luận theo id truyện
         List<Comment> commentList = commentRepository.findByStoryId(id);
-        if (story == null) {
+
+        //Ném ra lỗi nếu truyện không tồn tại
+        if (id == null) {
             throw new NotFoundException("Id truyện:" + id + "không tồn tại");
         }
+
+        // Gọi model ra html (sử dụng thymeleaf)
         model.addAttribute("comment",new Comment());
         model.addAttribute("listChapters",listChapters);
         model.addAttribute("commentList",commentList);
@@ -74,13 +83,24 @@ public class MainController {
     public String showChapter(Model model,
                               @PathVariable("sId") Long storyId,
                               @PathVariable("chId") Long chapterId) {
+
+        // Tìm nội dung chương truyện theo id truyện và id chương
         Optional<Chapter> chapter = chapterRepo.findChapterByStoryIdAndChapterId(storyId,chapterId);
+
+        // Liệt kê danh sách thể loại
         List<Category> listCategories = categoryRepo.findAll();
+
+        // Lấy id truyện
         Story story = storyRepo.findById(storyId).get();
+
+        // Liệt kê chương theo truyện
         List<Chapter> listChapters = chapterRepo.findByStoryId(storyId);
-        if(story == null){
+
+        // Ném ra lỗi nếu truyện không tồn tại
+        if(storyId == null){
             throw new NotFoundException("Id truyện:" + storyId + "không tồn tại");
         }
+
         listByPage(model,1,storyId,chapterId);
         model.addAttribute("chapter", chapter.get());
         model.addAttribute("listChapters",listChapters);
@@ -126,24 +146,33 @@ public class MainController {
                              @PathVariable(name = "pageNumer") int currentPage,
                              @PathVariable("sId") Long storyId,
                              @PathVariable("chId") Long chapterId){
+
+        //Lấy danh sách chương sử dụng phân trang theo số trang hiện tại (Page)
         Page<Chapter> page = chapterService.listAll(currentPage);
+
+        // Tìm nội dung chương truyện theo id truyện và id chương
         Optional<Chapter> chapter = chapterRepo.findChapterByStoryIdAndChapterId(storyId,chapterId);
+
+        //Liệt kê danh sách thể loại
         List<Category> listCategories = categoryRepo.findAll();
+
+        //Lấy truyện theo id
         Story story = storyRepo.findById(storyId).get();
+
+        //Lấy danh sách chương theo id truyện
         List<Chapter> listChapters = chapterRepo.findByStoryId(storyId);
-        if(story == null){
+        if(storyId == null){
             throw new NotFoundException("Id truyện:" + storyId + "không tồn tại");
         }
-        long totalItems = page.getTotalElements();
-        int totalPages = page.getTotalPages();
+
+        // lấy danh sách chương theo paging
         List<Chapter> listChapter = page.getContent();
+
         model.addAttribute("chapter", chapter.get());
         model.addAttribute("listChapters",listChapters);
         model.addAttribute("listCategories",listCategories);
         model.addAttribute("story", story);
         model.addAttribute("currentPage", currentPage);
-        model.addAttribute("totalPages", totalPages);
-        model.addAttribute("totalItems", totalItems);
         model.addAttribute("listChapter", listChapter);
         return "chapterPaging";
     }

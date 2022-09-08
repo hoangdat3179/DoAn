@@ -28,8 +28,10 @@ public class StoryService {
 
     /*Lấy danh sách truyện và phân trang*/
     public Page<Story> listAll(int pageNum, String keyword) {
+        //Sắp xếp theo id tăng dần
         Sort sort = Sort.by("id").ascending();
 
+        //Phân trang
         Pageable pageable = PageRequest.of(pageNum - 1, 3, sort);
         if (keyword != null) {
             return storyRepository.findAllByPage(keyword, pageable);

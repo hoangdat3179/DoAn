@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import vn.techmaster.storyreadingwebsite.entity.Category;
+import vn.techmaster.storyreadingwebsite.exception.NotFoundException;
 import vn.techmaster.storyreadingwebsite.repository.CategoryRepository;
 
 import javax.validation.Valid;
@@ -48,6 +49,9 @@ public class AdminCategoryController {
     @GetMapping("/category/edit/{id}")
     public String showEditCategoryForm(@PathVariable("id") Long id, Model model){
         Category category = categoryRepo.findById(id).get();
+        if (id == null) {
+            throw new NotFoundException("Id thể loại:" + id + "không tồn tại");
+        }
         model.addAttribute("category", category);
         return "category_form";
     }

@@ -15,7 +15,7 @@ public class CustomUserDetailsService implements UserDetailsService {
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         User user = repo.findUserByEmail(email);
         if (user == null) {
-            throw new UsernameNotFoundException("No user found with the given email");
+            throw new UsernameNotFoundException("Không tìm thấy user");
         }
 
         return new CustomUserDetails(user);

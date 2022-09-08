@@ -29,15 +29,20 @@ public class CommentController {
     // Thêm comment vào truyện
 
     @PostMapping("/story/{sId}")
-    public String saveChapter(@Valid Comment comment, @PathVariable("sId") Long id){
+    public String saveChapter(@Valid Comment comment, BindingResult result, @PathVariable("sId") Long id){
         Story storyOptional = storyService.findById(id).get();
+
+        //Ném ra validate nếu lỗi
+        if (result.hasErrors()){
+            return "redirect:/story/" + storyOptional.getId();
+        }
         comment.setStory(storyOptional);
         commentRepository.save(comment);
         return "redirect:/story/" + storyOptional.getId();
     }
 
     //Xóa Comment
-    @GetMapping("/stories/{sID}/comment/delete/{id}")
+    @GetMapping("/story/{sID}/comment/delete/{id}")
     public String deleteChapter(@PathVariable("id") Long id,@PathVariable("sID")Long sId){
         Story story = storyRepo.findById(sId).get();
         commentRepository.deleteById(id);

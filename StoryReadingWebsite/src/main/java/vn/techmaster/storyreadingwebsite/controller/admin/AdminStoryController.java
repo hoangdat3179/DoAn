@@ -1,5 +1,6 @@
 package vn.techmaster.storyreadingwebsite.controller.admin;
 
+import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.repository.query.Param;
@@ -11,6 +12,7 @@ import org.springframework.web.multipart.MultipartFile;
 import vn.techmaster.storyreadingwebsite.Service.StoryService;
 import vn.techmaster.storyreadingwebsite.entity.Category;
 import vn.techmaster.storyreadingwebsite.entity.Story;
+import vn.techmaster.storyreadingwebsite.exception.NotFoundException;
 import vn.techmaster.storyreadingwebsite.repository.CategoryRepository;
 import vn.techmaster.storyreadingwebsite.repository.ChapterRepository;
 import vn.techmaster.storyreadingwebsite.repository.StoryRepository;
@@ -26,6 +28,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/admin")
+@Log4j2
 public class AdminStoryController {
 
     @Autowired
@@ -59,6 +62,7 @@ public class AdminStoryController {
     public String saveBook(@RequestParam("fileImage") MultipartFile multipartFile, Story story,
                            Model model,@Param("keyword") String keyword) throws IOException {
 
+        // upload ảnh vào truyện
         String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
         story.setImage(fileName);
         Story savedStory = storyRepo.save(story);
@@ -74,7 +78,7 @@ public class AdminStoryController {
         Path filePath = uploadPath.resolve(fileName);
         Files.copy(inputStream ,filePath , StandardCopyOption.REPLACE_EXISTING);
         } catch (IOException e){
-            throw new IOException("Could not save uploaded file: " + fileName);
+            throw new IOException("Không thể upload file: " + fileName);
         }
 
         return listByPage(model,1,keyword);
@@ -85,6 +89,9 @@ public class AdminStoryController {
     @GetMapping("/story/edit/{id}")
     public String showEditBookForm(@PathVariable("id") Long id, Model model){
         Story story = storyRepo.findById(id).get();
+        if (id == null) {
+            throw new NotFoundException("Id truyện:" + id + "không tồn tại");
+        }
         List<Category> listCategories = categoryRepo.findAll();
         model.addAttribute("listCategories", listCategories);
         model.addAttribute("story", story);

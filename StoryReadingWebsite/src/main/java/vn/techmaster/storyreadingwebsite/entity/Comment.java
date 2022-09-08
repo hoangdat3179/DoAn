@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
-import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Entity(name = "comments")
@@ -15,15 +14,16 @@ import java.time.LocalDateTime;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Comment implements Serializable {
-    private static final long serialVersionUID = 1L;
+public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotEmpty(message = "Không được để trống")
     @Column(nullable = false)
     private String name;
 
+    @NotEmpty(message = "Không được để trống")
     @Column(nullable = false,columnDefinition = "TEXT")
     private String content;
     private LocalDateTime lastUpdate;

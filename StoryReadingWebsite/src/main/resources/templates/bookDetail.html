@@ -81,17 +81,17 @@
             <div style="margin-left: 100px">
                 <img th:src="@{${story.imagePath}}" style="width: 200px" class="rounded">
                 <br>
-                <p th:text="'Tác giả: ' +${story.author}" style=" font-size: 12px" >Tác Giả:</p>
-                <p th:text="'Thể loại: ' +${story.categories}" style=" font-size: 12px"></p>
-                <p th:text="'Nguồn truyện: '+${story.link}" style=" font-size: 12px"></p>
-                <p th:text="'Trạng Thái: '+${story.status.label}" style=" font-size: 12px"></p>
+                <p th:text="'Tác giả: ' +${story.author}"  >Tác Giả:</p>
+                <p th:text="'Thể loại: ' +${story.categories}" ></p>
+                <p th:text="'Nguồn truyện: '+${story.link}" ></p>
+                <p th:text="'Trạng Thái: '+${story.status.label}"></p>
             </div>
         </div>
         <div class="col">
             <p th:text="${story.title}" class="fs-3 text-uppercase fw-bolder text-center"></p>
             <hr>
             <p class="text-center">Nội dung truyện:</p>
-            <pre style="white-space:pre-wrap; font-size: 12px" th:text="${story.description}"></pre>
+            <pre style="white-space:pre-wrap" th:text="${story.description}"></pre>
         </div>
         <div class="col border border-dark rounded">
             <p class="fs-5 text-uppercase fw-bolder" >Thể Loại Truyện</p>
@@ -127,12 +127,14 @@
         <form th:action="|/story/${story.id}|" th:object="${comment}" method="post">
             <input type="hidden" th:field="*{id}"/>
             <div>
-                <label class="form-label">Name: </label>
-                <input type="text" th:field="*{name}" class="form-control" required>
+                <label for="name">Name</label>
+                <input class="form-control" type="text" th:field="*{name}" id="name" placeholder="Nhập tên" required>
+                <div class="alert alert-warning" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
             </div>
             <div>
-                <label for="description" class="form-label">Comment</label>
-                <textarea class="form-control" th:field="*{content}" id="description" rows="3" cols="70" required></textarea>
+                <label for="content" class="form-label">Comment</label>
+                <textarea class="form-control" th:field="*{content}" id="content" rows="3" cols="70" placeholder="Để lại bình luận" required></textarea>
+                <div class="alert alert-warning" th:if="${#fields.hasErrors('content')}" th:errors="*{content}"></div>
             </div><br>
             <div class="d-flex flex-row-reverse">
                 <input type="submit" value="Add comment">

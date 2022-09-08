@@ -51,10 +51,10 @@
         </div>
     </div>
 </nav>
-<div class="container-fluid text-center">
+<div class="container-fluid">
     <div th:if="${chapter.id == null}"><h1>Thêm mới chương</h1></div>
     <div th:unless="${chapter.id == null}"><h1>Sửa chương</h1></div>
-    <form th:action="|/admin/story/add/chapter/${story.id}|" th:object="${chapter}" method="post" style="max-width: 600px; margin: 0 auto;"
+    <form th:action="|/admin/story/add/chapter/${story.id}|" th:object="${chapter}" method="post"
           enctype="multipart/form-data">
         <input type="hidden" th:field="*{id}"/>
         <div>
@@ -63,10 +63,10 @@
         </div><br>
         <div>
             <label for="description" class="form-label">Nội dung chương: </label>
-            <textarea class="form-control" th:field="*{content}" id="description" rows="10" cols="70"></textarea>
+            <textarea class="form-control" th:field="*{content}" id="description" rows="15" cols="70"></textarea>
         </div><br>
-            <div class="text-center p-3">
-                <button type="submit" class="btn btn-primary">Lưu thông tin</button>
+            <div>
+                <button type="submit" class="btn btn-primary">Thêm chương</button>
             </div>
     </form>
 </div>

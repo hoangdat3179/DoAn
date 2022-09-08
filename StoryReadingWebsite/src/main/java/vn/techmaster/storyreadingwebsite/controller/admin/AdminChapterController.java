@@ -11,6 +11,7 @@ import vn.techmaster.storyreadingwebsite.Service.ChapterService;
 import vn.techmaster.storyreadingwebsite.Service.StoryService;
 import vn.techmaster.storyreadingwebsite.entity.Chapter;
 import vn.techmaster.storyreadingwebsite.entity.Story;
+import vn.techmaster.storyreadingwebsite.exception.NotFoundException;
 import vn.techmaster.storyreadingwebsite.repository.ChapterRepository;
 import vn.techmaster.storyreadingwebsite.repository.StoryRepository;
 
@@ -33,6 +34,9 @@ public class AdminChapterController{
     @GetMapping(value = "/story/{id}")
     public String showBookDetailByID(Model model,@PathVariable("id") Long id) {
         Story story = storyRepo.findById(id).get();
+        if (id == null) {
+            throw new NotFoundException("Id truyện:" + id + "không tồn tại");
+        }
         List<Chapter> listChapters = chapterRepo.findByStoryId(id);
         model.addAttribute("listChapters",listChapters);
         model.addAttribute("story", story);
@@ -61,7 +65,13 @@ public class AdminChapterController{
     @GetMapping("/story/{sID}/chapter/edit/{chID}")
     public String showEditChapterForm(@PathVariable("chID") Long chID, Model model,@PathVariable("sID")Long sID){
         Story storyOptional = storyService.findById(sID).get();
+        if (sID == null) {
+            throw new NotFoundException("Id truyện:" + sID + "không tồn tại");
+        }
         Chapter chapter = chapterRepo.findById(chID).get();
+        if (chID == null) {
+            throw new NotFoundException("Id Chương:" + chID + "không tồn tại");
+        }
         model.addAttribute("story", storyOptional);
         model.addAttribute("chapter", chapter);
         return "add_chapter";
