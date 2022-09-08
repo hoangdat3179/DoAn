@@ -52,9 +52,14 @@ public class AdminChapterController{
         return "redirect:/admin/story/" + storyOptional.getId();
     }
 
+    // Form thêm chương
     @GetMapping(value = "/story/add/chapter/{id}")
     public String addForm(Model model,@PathVariable("id") Long id) {
         Optional<Story> storyOptional = storyRepo.findById(id);
+        //Ném ra lỗi không tìm thấy truyện
+        if (id == null) {
+            throw new NotFoundException("Id truyện:" + id + "không tồn tại");
+        }
         model.addAttribute("story",storyOptional.get());
         model.addAttribute("chapter",new Chapter());
         return "add_chapter";
@@ -65,9 +70,11 @@ public class AdminChapterController{
     @GetMapping("/story/{sID}/chapter/edit/{chID}")
     public String showEditChapterForm(@PathVariable("chID") Long chID, Model model,@PathVariable("sID")Long sID){
         Story storyOptional = storyService.findById(sID).get();
+        //Ném ra lỗi không tìm thấy truyện
         if (sID == null) {
             throw new NotFoundException("Id truyện:" + sID + "không tồn tại");
         }
+        //Ném ra lỗi không tìm thấy chương
         Chapter chapter = chapterRepo.findById(chID).get();
         if (chID == null) {
             throw new NotFoundException("Id Chương:" + chID + "không tồn tại");

@@ -49,15 +49,18 @@ public class AdminStoryController {
     }
 
 
-    //Tạo mới truyện
+    //Form thêm truyện
     @GetMapping("/story/new")
     public String showCreateNewBookFrom(Model model){
+        //Lấy danh sách thể loại
         List<Category> listCategories = categoryRepo.findAll();
         model.addAttribute("listCategories", listCategories);
         model.addAttribute("story", new Story());
         return "add_story";
     }
 
+
+    // Thêm truyện
     @PostMapping("/story/save")
     public String saveBook(@RequestParam("fileImage") MultipartFile multipartFile, Story story,
                            Model model,@Param("keyword") String keyword) throws IOException {
@@ -88,10 +91,12 @@ public class AdminStoryController {
     // Sửa truyện
     @GetMapping("/story/edit/{id}")
     public String showEditBookForm(@PathVariable("id") Long id, Model model){
+        // Lấy truyện theo id
         Story story = storyRepo.findById(id).get();
         if (id == null) {
             throw new NotFoundException("Id truyện:" + id + "không tồn tại");
         }
+        // Lấy danh sách thể loại
         List<Category> listCategories = categoryRepo.findAll();
         model.addAttribute("listCategories", listCategories);
         model.addAttribute("story", story);
@@ -119,10 +124,16 @@ public class AdminStoryController {
     public String listByPage(Model model,
                            @PathVariable(name = "pageNumer") int currentPage,
                             @Param("keyword") String keyword){
+
+        // Lấy danh sách truyện theo phân trang và tìm kiếm theo keyword
         Page<Story> page = storyService.listAll(currentPage,keyword);
 
+        // Lấy tổng số truyện
         long totalItems = page.getTotalElements();
+
+        //Lấy tổng số trang
         int totalPages = page.getTotalPages();
+
         List<Story> listStories = page.getContent();
 
         model.addAttribute("currentPage", currentPage);

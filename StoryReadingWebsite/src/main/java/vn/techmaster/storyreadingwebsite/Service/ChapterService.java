@@ -10,7 +10,7 @@ import vn.techmaster.storyreadingwebsite.entity.Chapter;
 import vn.techmaster.storyreadingwebsite.repository.ChapterRepository;
 
 
-@Service
+@Service // Đánh dấu class Service
 public class ChapterService {
 
     @Autowired

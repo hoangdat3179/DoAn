@@ -31,13 +31,14 @@ public class AdminCategoryController {
     }
 
 
-    //Thêm thể loại
+    //Form thêm thể loại
     @GetMapping("/category/new")
     public String showCreateNewCategoryFrom(Model model){
         model.addAttribute("category", new Category());
         return "category_form";
     }
 
+    //Thêm thể loại
     @PostMapping("/category/save")
     public String saveCategory(@Valid Category category){
         categoryRepo.save(category);

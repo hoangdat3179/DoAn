@@ -45,6 +45,7 @@ public class CommentController {
     @GetMapping("/story/{sID}/comment/delete/{id}")
     public String deleteChapter(@PathVariable("id") Long id,@PathVariable("sID")Long sId){
         Story story = storyRepo.findById(sId).get();
+
         commentRepository.deleteById(id);
         return "redirect:/story/" + story.getId();
     }

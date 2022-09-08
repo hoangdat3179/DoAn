@@ -20,18 +20,21 @@ import java.util.List;
 @Rollback(false) // Cho phép thay đổi trong database
 public class StoryRepositoryTests {
 
+    // Unit Test
     @Autowired
     private CategoryRepository categoryRepository;
 
     @Autowired
     private StoryRepository storyRepository;
 
+
+
+    //Test thêm thể loại
     @Test
     public void testCreateCategories() {
         Category category = new Category("Việt Nam");
         Category category1 = new Category("Khác");
         Category category2 = new Category("Chiến Tranh");
-
 
         categoryRepository.saveAll(List.of(category, category1, category2));
 
@@ -40,11 +43,12 @@ public class StoryRepositoryTests {
         assertThat(listCategories.size()).isEqualTo(3);
     }
 
+
+    // Test thêm truyện
     @Test
     public void testCreateStories() {
         Category category = new Category("Du kích");
         Category category2 = new Category("Viễn Tưởng");
-
 
         categoryRepository.saveAll(List.of(category, category2));
         List<Category> listCategories = categoryRepository.findAll();
