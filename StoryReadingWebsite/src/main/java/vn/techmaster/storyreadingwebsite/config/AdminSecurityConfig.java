@@ -26,7 +26,7 @@ public class AdminSecurityConfig {
     public BCryptPasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
-    
+
     @Bean
     public SecurityFilterChain filterChain1(HttpSecurity http) throws Exception {
         http.authorizeRequests().antMatchers("/").permitAll();

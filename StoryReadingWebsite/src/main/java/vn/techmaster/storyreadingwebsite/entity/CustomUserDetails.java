@@ -3,7 +3,6 @@ package vn.techmaster.storyreadingwebsite.entity;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import vn.techmaster.storyreadingwebsite.entity.User;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -11,6 +10,7 @@ import java.util.List;
 
 public class CustomUserDetails implements UserDetails {
 
+    // UserDetails interface có sẵn các phương thức lấy thông tin từ user
     private User user;
 
     public CustomUserDetails(User user) {

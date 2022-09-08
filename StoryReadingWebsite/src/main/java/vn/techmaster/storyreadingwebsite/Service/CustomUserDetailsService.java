@@ -11,6 +11,7 @@ import vn.techmaster.storyreadingwebsite.repository.UserRepository;
 public class CustomUserDetailsService implements UserDetailsService {
     @Autowired private UserRepository repo;
 
+    //Phương thức này sẽ được gọi bởi Spring Security để lấy ra thông tin của tài khoản có username là username được nhập từ màn hình login.
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         User user = repo.findUserByEmail(email);
