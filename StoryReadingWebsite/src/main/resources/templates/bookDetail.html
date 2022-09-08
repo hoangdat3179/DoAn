@@ -93,7 +93,10 @@
             <p th:text="${story.title}" class="fs-3 text-uppercase fw-bolder text-center"></p>
             <hr>
             <p class="text-center">Nội dung truyện:</p>
-            <pre style="white-space:pre-wrap; font-size: 15px" th:text="${story.description}"></pre>
+            <pre style="white-space:pre-wrap;font-size: 12px;
+    overflow: hidden;
+    text-align: left;
+    font-family: 'Arial','sans-serif';" th:text="${story.description}"></pre>
         </div>
         <div class="col border border-dark rounded">
             <p class="fs-5 text-uppercase fw-bolder" >Thể Loại Truyện</p>
@@ -116,7 +119,7 @@
         <div class="col" >
             <ul th:each="chapter : ${listChapters}">
                 <li>
-                    <a th:href="|/story/${story.id}/chapter/${chapter.id}|" th:text="${chapter.title}" style="text-decoration: none"></a>
+                    <i class="fa-sharp fa-solid fa-star-of-life"></i> <a th:href="|/story/${story.id}/chapter/${chapter.id}|" th:text="${chapter.title}" style="text-decoration: none ;color: black"></a>
                 </li>
             </ul>
         </div>

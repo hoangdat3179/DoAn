@@ -165,9 +165,16 @@ public class MainController {
             throw new NotFoundException("Id truyện:" + storyId + "không tồn tại");
         }
 
+        // Lấy tổng số truyện
+        long totalItems = page.getTotalElements();
+
+        //Lấy tổng số trang
+        int totalPages = page.getTotalPages();
         // lấy danh sách chương theo paging
         List<Chapter> listChapter = page.getContent();
 
+        model.addAttribute("totalPages", totalPages);
+        model.addAttribute("totalItems", totalItems);
         model.addAttribute("chapter", chapter.get());
         model.addAttribute("listChapters",listChapters);
         model.addAttribute("listCategories",listCategories);

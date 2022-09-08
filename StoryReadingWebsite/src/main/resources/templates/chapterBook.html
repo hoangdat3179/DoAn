@@ -82,7 +82,7 @@
   <div class="container">
     <div class="row">
       <div class="d-flex justify-content-center ">
-        <a id="previous" th:if="${currentPage > 1}"  th:href="@{'/story/' + ${story.id} +'/chapter/'+ ${chapter.id} + '/page/' + ${currentPage - 1}}"
+        <a th:if="${currentPage > 1}"  th:href="@{'/story/' + ${story.id} +'/chapter/'+ ${chapter.id} + '/page/' + ${currentPage - 1}}"
            class="btn btn-primary m-2">Chương trước
         </a>
         <span th:unless="${currentPage > 1}" class="btn btn-primary m-2">Chương trước</span>
@@ -94,7 +94,7 @@
             <li th:each="chapter : ${listChapters}" ><a class="dropdown-item" th:href="|/story/${story.id}/chapter/${chapter.id}|" th:text="${chapter.title}"></a></li>
           </ul>
         </div>
-        <a   th:href="@{'/story/' + ${story.id} +'/chapter/'+ ${chapter.id} + '/page/' + ${currentPage + 1}}"
+        <a  th:href="@{'/story/' + ${story.id} +'/chapter/'+ ${chapter.id} + '/page/' + ${currentPage + 1}}"
            class="btn btn-primary m-2" th:if="${currentPage < totalPages}">Chương sau
         </a>
         <span th:unless="${currentPage < totalPages}" class="btn btn-primary m-2">Chương sau</span>
@@ -108,7 +108,7 @@
   <div class="container">
     <div class="row">
       <div class="d-flex justify-content-center ">
-        <a id="previous" th:if="${currentPage > 1}"  th:href="@{'/story/' + ${story.id} +'/chapter/'+ ${chapter.id} + '/page/' + ${currentPage - 1}}"
+        <a th:if="${currentPage > 1}"  th:href="@{'/story/' + ${story.id} +'/chapter/'+ ${chapter.id} + '/page/' + ${currentPage - 1}}"
            class="btn btn-primary m-2">Chương trước
         </a>
         <span th:unless="${currentPage > 1}" class="btn btn-primary m-2">Chương trước</span>
