@@ -7,6 +7,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import vn.techmaster.storyreadingwebsite.utils.DateUtils;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 import java.util.*;
 
 @Entity(name = "story")
@@ -18,9 +19,11 @@ public class Story  {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotEmpty(message = "Cannot be empty")
     @Column(nullable = false,unique = true)
     private String title;
 
+    @NotEmpty(message = "Cannot be empty")
     @Column(nullable = false)
     private String author;
     @Column(nullable = false, columnDefinition = "TEXT")
