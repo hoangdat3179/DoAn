@@ -7,6 +7,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import vn.techmaster.storyreadingwebsite.Service.StoryService;
@@ -17,6 +18,7 @@ import vn.techmaster.storyreadingwebsite.repository.CategoryRepository;
 import vn.techmaster.storyreadingwebsite.repository.ChapterRepository;
 import vn.techmaster.storyreadingwebsite.repository.StoryRepository;
 
+import javax.validation.Valid;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
@@ -62,13 +64,16 @@ public class AdminStoryController {
 
     // Thêm truyện
     @PostMapping("/story/save")
-    public String saveBook(@RequestParam("fileImage") MultipartFile multipartFile, Story story,
-                           Model model,@Param("keyword") String keyword) throws IOException {
+    public String saveBook(@RequestParam("fileImage") MultipartFile multipartFile, @Valid Story story,
+                           Model model,@Param("keyword") String keyword, BindingResult result) throws IOException {
 
         // upload ảnh vào truyện
         String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
         story.setImage(fileName);
         Story savedStory = storyRepo.save(story);
+        if (result.hasErrors()) {
+            return "add_story";
+        }
 
         String uploadDir = "book-images/" + savedStory.getId();
 
